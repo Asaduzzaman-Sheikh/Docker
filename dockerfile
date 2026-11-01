@@ -14,7 +14,25 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # Set the environment variable for Flask
-ENV FLASK_APP = app.py
+ENV FLASK_APP=app.py
 
 # Run the Flask app when the continer starts
-CMD ["flasf", "run", "--host = 0.0.0.0", "--port = 5000"]
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+
+
+
+
+
+# Step 1: Now build the Docker image using the following command in the terminal:
+# docker build -t my-flask-app .
+# Step 2: Then run the container with the following command:
+# docker run -p 5000:5000 my-flask-app
+# Step 3: Tag the image for Docker Hub (replace <username> with your Docker Hub username):
+# docker tag my-flask-app <username>/my-flask-app:latest
+# Step 4: Push the image to Docker Hub:
+# docker push <username>/my-flask-app:latest
+# Step 5: Pull the image from Docker Hub on another machine (replace <username> with your Docker Hub username):
+# docker pull <username>/my-flask-app:latest
+# Step 6: Run the pulled image from Docker Hub:
+# docker run -p 5000:5000 <username>/my-flask-app:latest
